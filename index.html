@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture</title>
+
+    <!-- Bootstrap CSS from jsDelivr -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/@rive-app/canvas@latest"></script>
+
+    <!-- external css link -->
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <!-- header section -->
+    <header class="position-relative">
+        <nav class="navbar d-lg-block d-md-block d-none fixed-top">
+            <ul>
+                <li class="active">Architecture</li>
+                <li>Home</li>
+                <li>Buy or Rent</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+
+        <nav class="mobile-navbar navbar-expand-lg py-3 px-md-5 d-lg-none d-md-none">
+            <div class="container-fluid gap-md-5">
+                <a class="navbar-brand" href="#">
+                    <img src="./assets/logo.png" alt="nav-logo" style="height: 37px;">
+                </a>
+                <span class="navbar-toggler border-0 bg-transparent" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <input id="checkbox" type="checkbox" />
+                    <label class="toggle" for="checkbox">
+                        <div id="bar1" class="bars"></div>
+                        <div id="bar2" class="bars"></div>
+                        <div id="bar3" class="bars"></div>
+                        <div id="bar4" class="bars"></div>
+                        <div id="bar5" class="bars"></div>
+                    </label>
+                </span>
+                <div class="collapse navbar-collapse text-center" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-md-5">
+                        <li class="nav-item mt-5">
+                            <a class="header-link text-decoration-none" aria-current="page" href="#">Solar Panel</a>
+                        </li>
+                        <li class="nav-item mt-3 mt-lg-0 mt-md-0">
+                            <a class="header-link text-decoration-none" href="#">Home</a>
+                        </li>
+                        <li class="nav-item mt-3 mt-lg-0 mt-md-0">
+                            <a class="header-link text-decoration-none" href="#">Buy or Rent</a>
+                        </li>
+                        <li class="nav-item mt-3 mt-lg-0 mt-md-0">
+                            <a class="header-link text-decoration-none" href="#">About</a>
+                        </li>
+                        <li class="nav-item mt-3 mt-lg-0 mt-md-0">
+                            <a class="header-link text-decoration-none" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section>
+            <div class="position-relative w-100 header-section">
+                <video autoplay muted loop>
+                    <source src="./assets/hero-section.mp4" type="video/mp4">
+                </video>
+                <div class="header-content text-white">
+                    <div class="container">
+                        <div class="col-md-8">
+                            <img src="./assets/logo.png" alt="logo" class="d-none d-lg-block d-md-block">
+                            <div class="text-white fw-bold hero-title">Designing the Future,</div>
+                            <div class="text-white fw-bold hero-title">Today</div>
+                            <div class="text-white fs-5">Discover cutting-edge architectural solutions that shape
+                                tomorrow's landscapes.</div>
+                            <button class="fs-5 mt-5 rounded-pill get-started-btn" data-bs-toggle="modal"
+                                data-bs-target="#expertModal">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <!-- Modal -->
+    <div class="modal fade" id="expertModal" tabindex="-1" aria-labelledby="expertModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Modal Header (optional) -->
+                <div class="modal-header d-none">
+                    <h5 class="modal-title" id="expertModalLabel">Modal title</h5>
+                </div>
+
+                <div class="modal-body px-3 py-4">
+                    <form action="" id="expertForm" class="form-md px-4" novalidate>
+                        <div class="fs-4 text-start mb-4">Please share your details</div>
+                        <div class="form-group mb-4">
+                            <input type="text" class="form-control fs-6" id="fullname" placeholder=" "
+                                style="border-radius: 10px;" required>
+                            <label for="fullname" class="form-label fs-6">Name</label>
+                            <div id="nameError" class="text-danger text-start mt-1"></div>
+                        </div>
+                        <div class="d-flex-container">
+                            <select class="form-select" id="countryCode">
+                                <option value="+91">+91</option>
+                                <option value="+1">+1</option>
+                                <option value="+44">+44</option>
+                                <!-- Add more country codes as needed -->
+                            </select>
+                            <div class="phone-container">
+                                <input type="tel" class="form-control border-start-0" id="phone" placeholder=" "
+                                    required style="border-radius: 0 10px 10px 0;">
+                                <label for="phone" class="form-label fs-6">Phone</label>
+                            </div>
+                        </div>
+                        <div id="phoneError" class="text-danger text-start mt-1 mb-4"></div>
+
+                        <div class="form-group mb-4">
+                            <input type="email" class="form-control" id="email" placeholder=" "
+                                style="border-radius: 10px;" required>
+                            <label for="email" class="form-label fs-6">Email</label>
+                            <div id="emailError" class="text-danger text-start mt-1"></div>
+                        </div>
+
+                        <div id="termsSection" class="form-check mb-4">
+                            <input type="checkbox" class="form-check-input" id="termsCondition" required>
+                            <label class="form-check-label text-start" for="termsCondition" style="font-size: 14px;">
+                                By submitting this form, I agree to accept and agree to Realezi’s T&C
+                            </label>
+                            <div id="checkError" class="text-danger text-start mt-1"></div>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="submit-btn-disabled rounded-pill w-100 py-2"
+                            disabled>Submit</button>
+                    </form>
+
+                    <!-- Thank You Message -->
+                    <div id="thankYouMessage" style="display:none;" class="text-center p-5">
+                        <video width="250" height="200" autoplay muted playsinline class="border-0">
+                            <source src="./assets/loading-animation.mp4" type="video/mp4">
+                        </video>
+                        <div class="fw-bolder fs-3" style="color:#EC7100; animation: slideUp 1s ease-out;">Great!
+                        </div>
+                        <div class="mt-3 mb-2" style="animation: slideUp 1.5s ease-out;">Our Dedicated Relationship
+                            Manager will contact you shortly</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Close Button Outside Modal Content -->
+            <button type="button" class="btn btn-close position-fixed top-0 end-0 m-3" aria-label="Close">
+                <span><img src="./assets/icons/wrong-circle-icon.svg" alt="icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <main class="bg-white">
+
+        <section class="py-5 container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-5 col-12 fw-bold referral-title text-start">
+                    Architectural Innovation
+                </div>
+                <div class="col-lg-5 col-12 sub-title secondary-text-color">
+                    Experience architectural innovation that pushes boundaries and sets new trends. Designing spaces
+                    that inspire and endure
+                </div>
+            </div>
+        </section>
+
+        <!-- insipire section -->
+        <section class="py-5 container">
+            <div class="primary-text-color Inspire-text" style="font-weight: 500;">
+                From homes to high-rises and everything in between,
+                <div>we design spaces that <span class="fw-bold">Inspire,</span> function, and elevate.</div>
+            </div>
+            <div class="row align-items-stretch">
+                <div class="col-lg-6 col-12 mt-5">
+                    <div class="card flex-column border-0 benefits-card">
+                        <div class="card-body px-5">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Inspire/Inspire-card-img-1.png" alt="Inspire-image"
+                                    class="Inspire-image">
+                                <div
+                                    class="card-title text-start secondary-text-color fw-semibold ms-3 mt-2 inspire-card-title">
+                                    Sustainable & Green Design
+                                </div>
+                            </div>
+                            <p class="card-text text-start secondary-text-color fs-6 mt-4">Shape the cities of tomorrow
+                                with our visionary urban planning solutions, blending sustainability and community
+                                needs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 mt-5">
+                    <div class="card flex-column border-0 benefits-card">
+                        <div class="card-body px-5">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Inspire/Inspire-card-img-2.png" alt="Inspire-image"
+                                    class="Inspire-image">
+                                <div
+                                    class="card-title text-start secondary-text-color fw-semibold ms-3 mt-3 inspire-card-title">
+                                    Urban Planning
+                                </div>
+                            </div>
+                            <p class="card-text text-start secondary-text-color fs-6 mt-4">Designing urban environments
+                                that prioritize community, sustainability, and functionality.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 mt-5">
+                    <div class="card flex-column border-0 benefits-card">
+                        <div class="card-body px-5">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Inspire/Inspire-card-img-3.png" alt="Inspire-image"
+                                    class="Inspire-image">
+                                <div
+                                    class="card-title text-start secondary-text-color fw-semibold ms-3 mt-2 inspire-card-title">
+                                    Project Management
+                                </div>
+                            </div>
+                            <p class="card-text text-start secondary-text-color fs-6 mt-4">Streamlined project oversight
+                                and meticulous attention to detail, delivering excellence in every phase of
+                                construction.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 mt-5">
+                    <div class="card flex-column border-0 benefits-card">
+                        <div class="card-body px-5">
+                            <div class="d-flex align-items-center">
+                                <img src="./assets/Inspire/Inspire-card-img-4.png" alt="Inspire-image"
+                                    class="Inspire-image">
+                                <div
+                                    class="card-title text-start secondary-text-color fw-semibold ms-3 mt-1 inspire-card-title">
+                                    Feasibility Studies & Site Analysis
+                                </div>
+                            </div>
+                            <p class="card-text text-start secondary-text-color fs-6 mt-4">Empowering informed decisions
+                                with comprehensive feasibility studies and meticulous site analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- shot-section start -->
+        <section class="py-5">
+            <div class="short-section">
+                <div class="row">
+                    <div class="main-heading pt-2">
+                    </div>
+                    <div class="video-group">
+                        <button class="arrow left-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="video-slider track">
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/1.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/2.mp4"></video>
+                                        <div class="volume-setting hidden">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/3.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/4.mp4" muted></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/5.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/6.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/7.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/8.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/5.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/6.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="arrow right-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="video-group">
+                        <button class="arrow left-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="video-slider track">
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/1.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/2.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/3.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/4.mp4" muted></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/5.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/6.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/7.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/8.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/5.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video">
+                                <div class="content">
+                                    <div class="video-volume">
+                                        <video src="videos/6.mp4"></video>
+                                        <div class="volume-setting">
+                                            <div class="volume-icon volume-up">
+                                                <div class="bar bar1"></div>
+                                                <div class="bar bar2"></div>
+                                                <div class="bar bar3"></div>
+                                            </div>
+                                            <img src="./assets/icons/volume-off.png" alt="volume-mute icon" width="30px"
+                                                class="volume-icon volume-off hidden">
+                                        </div>
+                                    </div>
+                                    <div class="detail d-flex justify-content-between pt-2">
+                                        <p class="m-0">Semi furnished 1 BHK in block <br> 2, Garden Villas</p>
+                                        <span><img src="./assets/icons/more.svg" alt="share" width="20px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="arrow right-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div id="sliderAutoplay" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+                    <div class="carousel-indicators gap-1 m-0">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- why Realezi section -->
+        <section class="py-5 container">
+            <div class="fw-bold primary-text-color text-title">Why Realezi</div>
+            <div class="mt-4 sub-title secondary-text-color">We offer comprehensive solutions, from initial concept
+                development to project completion,</div>
+            <div class="sub-title secondary-text-color">ensuring functional, aesthetically pleasing, and sustainable
+                built
+                environments.</div>
+            <div class="row align-items-stretch mt-5 px-3 px-lg-0 px-md-0">
+                <div class="col-lg-3 col-md-6 col-12 d-flex mb-4 mb-lg-0">
+                    <div class="card d-flex flex-column shadow border-0 benefits-card pb-4">
+                        <div class="card-img hover-img-1"></div>
+                        <div class="card-body px-4">
+                            <div class="card-title text-center fw-semibold fs-4">Complete Turnkey</div>
+                            <p class="card-text text-center secondary-text-color fs-6">With an emphasis on details,
+                                extraordinary designs and exceptional customer service, we bring your dreams to life.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 d-flex mb-4 mb-lg-0">
+                    <div class="card d-flex flex-column shadow border-0 benefits-card">
+                        <div class="card-img hover-img-2"></div>
+                        <div class="card-body px-4">
+                            <div class="card-title text-center fw-semibold fs-4">We Design</div>
+                            <p class="card-text text-center secondary-text-color fs-6">From completed homes to modular
+                                kitchens, and storage to decor, our top interior designers create spaces that match your
+                                vision.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 d-flex mb-4 mb-lg-0">
+                    <div class="card d-flex flex-column shadow border-0 benefits-card">
+                        <div class="card-img hover-img-3"></div>
+                        <div class="card-body px-4">
+                            <div class="card-title text-center fw-semibold fs-4">We Execute</div>
+                            <p class="card-text text-center secondary-text-color fs-6">We follow a meticulous planning
+                                approach with detail-driven designs for interiors of your homes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 d-flex mb-4 mb-lg-0">
+                    <div class="card d-flex flex-column shadow border-0 benefits-card">
+                        <div class="card-img hover-img-4"></div>
+                        <div class="card-body px-4">
+                            <div class="card-title text-center fw-semibold fs-4">We Manage</div>
+                            <p class="card-text text-center secondary-text-color fs-6">Our top interior designers
+                                spearhead quality assurance by extending support after the execution of home projects.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-5 container">
+            <div class="d-lg-block d-none d-md-block">
+                <div class="row align-items-center">
+                    <div class="col-5">
+                        <!-- Left Side Content -->
+                        <div id="stepper-content" class="mt-4">
+                            <div class="step-content active">
+                                <!-- Content for Step 1 -->
+                                <canvas id="meetTeam" height="500px" width="500px"></canvas>
+                            </div>
+                            <div class="step-content">
+                                <!-- Content for Step 2 -->
+                                <canvas id="finaliseDesigns" height="550px" width="550px"></canvas>
+                            </div>
+                            <div class="step-content">
+                                <!-- Content for Step 3 -->
+                                <canvas id="sealTheDeal" height="400px" width="400px"></canvas>
+                            </div>
+                            <div class="step-content">
+                                <!-- Content for Step 4 -->
+                                <canvas id="getWorkStarted" height="450px" width="450px"></canvas>
+                            </div>
+                            <div class="step-content">
+                                <!-- Content for Step 5 -->
+                                <canvas id="installationBegins" height="500px" width="500px"></canvas>
+                            </div>
+                            <div class="step-content">
+                                <!-- Content for Step 6 -->
+                                <canvas id="moveIn" height="500px" width="500px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="text-center fw-bold text-title primary-text-color text-title">The Way We Work</div>
+                        <div class="text-center fs-5 mt-2 secondary-text-color">Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit.
+                        </div>
+                        <!-- Stepper Header -->
+                        <div id="stepper-header" class="d-flex justify-content-center align-items-center mt-5">
+                            <div class="step-wrapper text-center">
+                                <div class="step active">1</div>
+                                <div class="step-title text-nowrap mt-2">Meet the team</div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="step-wrapper text-center">
+                                <div class="step">2</div>
+                                <div class="step-title text-nowrap mt-2">Finalise Designs</div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="step-wrapper text-center">
+                                <div class="step">3</div>
+                                <div class="step-title text-nowrap mt-2">Seal the Deal</div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="step-wrapper text-center">
+                                <div class="step">4</div>
+                                <div class="step-title text-nowrap mt-2">Get Work Started</div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="step-wrapper text-center">
+                                <div class="step">5</div>
+                                <div class="step-title text-nowrap mt-2">Installation Begins</div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="step-wrapper text-center">
+                                <div class="step">6</div>
+                                <div class="step-title text-nowrap mt-2">Move In</div>
+                            </div>
+                        </div>
+
+                        <!-- Below Content -->
+                        <div id="stepper-below-content" class="mt-5">
+                            <div class="step-content active text-center mt-3">
+                                <div class="fs-4 fw-bold">Meet the team</div>
+                                <div class="w-75 mx-auto secondary-text-color mt-3">Schedule your design consultation
+                                    today
+                                    and meet our experienced
+                                    team ready to transform your space.</div>
+                            </div>
+                            <div class="step-content text-center mt-3">
+                                <div class="fs-4 fw-bold">Finalise Designs</div>
+                                <div class="w-75 mx-auto secondary-text-color mt-3">Confirm and finalize all design
+                                    elements
+                                    before proceeding to the
+                                    next step.</div>
+                            </div>
+                            <div class="step-content text-center mt-3">
+                                <div class="fs-4 fw-bold">Seal the Deal</div>
+                                <div class="w-75 mx-auto secondary-text-color mt-3">Finalize the agreement and complete
+                                    all
+                                    necessary documentation.
+                                </div>
+                            </div>
+                            <div class="step-content text-center mt-3">
+                                <div class="fs-4 fw-bold">Get Work Started</div>
+                                <div class="w-75 mx-auto secondary-text-color mt-3">Kick off the project with initial
+                                    preparations and planning.</div>
+                            </div>
+                            <div class="step-content text-center mt-3">
+                                <div class="fs-4 fw-bold">Installation Begins</div>
+                                <div class="w-75 mx-auto">Begin the installation phase as per the planned schedule.
+                                </div>
+                            </div>
+                            <div class="step-content text-center mt-3">
+                                <div class="fs-4 fw-bold">Move In</div>
+                                <div class="w-75 mx-auto secondary-text-color mt-3">Complete the move-in process and
+                                    finalize any post-installation
+                                    adjustments.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel for Tablet and Mobile Views -->
+            <div class="d-lg-none d-md-none">
+                <div class="text-center fw-bold text-title primary-text-color">The Way We Work</div>
+                <div class="text-center fs-6 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </div>
+
+                <div id="carouselExample" class="carousel slide mt-5" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active text-center">
+                            <canvas id="mobileMeetTeam"></canvas>
+                            <div class="fw-bold fs-1 primary-text-color">Meet the team</div>
+                            <div class="w-75 mx-auto secondary-text-color mt-3">Schedule your design consultation today
+                                and
+                                meet our experienced team ready to transform your space.</div>
+                        </div>
+                        <div class="carousel-item text-center mt-4">
+                            <canvas id="mobileFinaliseDesigns"></canvas>
+                            <div class="fw-bold fs-1 primary-text-color">Finalise Designs</div>
+                            <div class="w-75 mx-auto secondary-text-color mt-3">Confirm and finalize all design elements
+                                before proceeding to the next step.</div>
+                        </div>
+                        <div class="carousel-item text-center mt-4">
+                            <canvas id="mobileSealTheDeal"></canvas>
+                            <div class="fw-bold fs-1 primary-text-color">Seal the Deal</div>
+                            <div class="w-75 mx-auto secondary-text-color mt-3">Finalize the agreement and complete all
+                                necessary documentation.</div>
+                        </div>
+                        <div class="carousel-item text-center mt-4">
+                            <canvas id="mobileGetWorkStarted"></canvas>
+                            <div class="fw-bold fs-1 primary-text-color">Get Work Started</div>
+                            <div class="w-75 mx-auto secondary-text-color mt-3">Kick off the project with initial
+                                preparations and planning.</div>
+                        </div>
+                        <div class="carousel-item text-center mt-4">
+                            <canvas id="mobileInstallationBegins"></canvas>
+                            <div class="fw-bold fs-1 primary-text-color">Installation Begins</div>
+                            <div class="w-75 mx-auto">Begin the installation phase as per the planned schedule.</div>
+                        </div>
+                        <div class="carousel-item text-center mt-4">
+                            <canvas id="mobileMoveIn"></canvas>
+                            <div class="fw-bold fs-1 primary-text-color">Move In</div>
+                            <div class="w-75 mx-auto secondary-text-color mt-3">Complete the move-in process and
+                                finalize
+                                any post-installation adjustments.</div>
+                        </div>
+                    </div>
+                    <!-- Carousel Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Referral Program section -->
+        <section class="py-5 container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-12">
+                    <div class="fw-bold primary-text-color referral-title">Referral Program</div>
+                    <div class="mt-3 secondary-text-color sub-title">Join our referral program and earn rewards for
+                        every
+                        friend you bring to our design family. Share the joy of transforming spaces together</div>
+                    <button class="mt-5 refer-btn sub-title rounded-pill"><span>Refer Now</span></button>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <img src="./assets/Referral.png" alt="Referral-image" class="w-100">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer section -->
+    <footer class="px-md-5 px-1 px-lg-5 position-relative" style="margin-top: 6%;">
+        <div class="container">
+            <div class="d-flex">
+                <img src="./assets/footer-man-image.png" alt="" class="footer-man-image position-absolute">
+                <button class="mt-5 rounded-pill book-free-btn mx-auto" data-bs-toggle="modal"
+                    data-bs-target="#freeConsultation">Book Free Consultation</button>
+            </div>
+            <div class="row flex-wrap">
+                <div class="card-group flex-wrap footer-top-group">
+                    <div class="col-12 col-lg-3 flex-column justify-content-between">
+                        <div class="content h-100">
+                            <div class="image d-flex justify-content-center d-lg-block">
+                                <img src="./assets/logo.png" alt="">
+                            </div>
+                            <div class="detail pt-lg-4">
+                                <p
+                                    class="m-0 text-white fw-normal fs-4 text-center text-lg-start py-3 py-lg-0 px-4 mx-auto">
+                                    Connecting You to Your
+                                    Dream Property.</p>
+                                <div class="p-0 d-block d-lg-inline-block pt-lg-5 text-center px-4">
+                                    <button type="button" class="btn btn-outline-light mt-3 md-mt-5 px-5 py-2 fs-5">Try
+                                        it
+                                        yourself</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pt-4 col-lg-9 pt-lg-0">
+                        <div class="content d-flex flex-wrap h-100">
+                            <div class="menu-box col-12 pt-5 col-md-3 col-lg-3 pt-lg-0">
+                                <div class="main-heading">
+                                    <h2 class="text-white text-capitalize fs-3 fw-normal m-0">company</h2>
+                                    <hr class="text-white" />
+                                </div>
+                                <ul class="m-0 p-0 pt-3 list-unstyled">
+                                    <li class="pb-2">
+                                        <a href="#" class="footer-link text-decoration-none">About us</a>
+                                    </li>
+                                    <li class="pb-2">
+                                        <a href="#" class="footer-link text-decoration-none">Blog</a>
+                                    </li>
+                                    <li class="pb-2">
+                                        <a href="#" class="footer-link text-decoration-none">Career</a>
+                                    </li>
+                                    <li class="pb-2">
+                                        <a href="#" class="footer-link text-decoration-none">Contact Support</a>
+                                    </li>
+                                    <li class="pb-2">
+                                        <a href="#" class="footer-link text-decoration-none">Get in touch</a>
+                                    </li>
+                                    <li class="pb-2">
+                                        <a href="#" class="footer-link text-decoration-none">FAQs</a>
+                                    </li>
+                                </ul>
+                                <div class="mt-3 text-start">
+                                    <button class="d-flex align-items-center hiring-Btn">
+                                        <span class="mx-2">We are hiring</span>
+                                        <canvas id="partyPopper"></canvas>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="menu-box col-12 pt-5 col-md-6 col-lg-6 pt-lg-0">
+                                <div class="main-heading">
+                                    <h2 class="text-white text-capitalize fs-3 fw-normal m-0">Solutions</h2>
+                                    <hr class="text-white" />
+                                </div>
+                                <div class="row px-3 px-lg-0 px-md-0">
+                                    <ul class="list-unstyled m-0 p-0 pt-3 col-12 col-lg-6">
+                                        <li class="pb-2">
+                                            <a href="#" class="footer-link text-decoration-none">Find a Right
+                                                Property</a>
+                                        </li>
+                                        <li class="pb-2">
+                                            <a href="#" class="footer-link text-decoration-none">Sell or Rent Your
+                                                Property</a>
+                                        </li>
+                                        <li class="pb-2">
+                                            <a href="#" class="footer-link text-decoration-none">Build Your Home From
+                                                Scratch&nbsp;</a>
+                                        </li>
+                                        <li class="pb-2">
+                                            <a href="#" class="footer-link text-decoration-none">Interior Designing
+                                                &amp;
+                                                Decor</a>
+                                        </li>
+                                        <li class="pb-2">
+                                            <a href="#" class="footer-link text-decoration-none">Solar Panel</a>
+                                        </li>
+                                        <li class="pb-2">
+                                            <a href="#" class="footer-link text-decoration-none">Home Loans</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="list-unstyled m-0 p-0 pt-0 pt-lg-3 pt-md-3 col-12 col-lg-6">
+                                        <li class="pb-2">
+                                            <a href="#" class="footer-link text-decoration-none">Legal Aid</a>
+                                        </li>
+                                        <li class="pb-2">
+                                            <a href="#" class="footer-link text-decoration-none">Porter Services</a>
+                                        </li>
+                                        <li class="pb-2">
+                                            <a href="#" class="footer-link text-decoration-none">For Business</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="menu-box col-12 pt-5 col-md-3 col-lg-3 pt-lg-0">
+                                <div class="main-heading">
+                                    <h2 class="text-white text-capitalize fs-3 fw-normal m-0">Community</h2>
+                                    <hr class="text-white" />
+                                </div>
+                                <ul class="list-unstyled m-0 p-0 pt-3">
+                                    <li class="pb-2">
+                                        <div class="btn p-0">
+                                            <button
+                                                class="btn-light refer-Btn rounded-pill mb-3 d-flex align-items-center text-nowrap">Refer
+                                                &amp; Earn
+                                                <span class="ms-1 mb-1">
+                                                    <img src="./assets/animation/fire-animation.gif" alt=""
+                                                        width="22px">
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="pb-2">
+                                        <a href="#" class="footer-link text-decoration-none">Realezi Community</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="footer-link text-decoration-none">Customers</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-lg-12" style="margin-top: -5%;">
+                                <div class="row align-items-center justify-content-end">
+                                    <div
+                                        class="col-lg-8 col-md-8 col-12 d-flex justify-content-end gap-2 pt-md-0 pt-lg-0 pt-5">
+                                        <button
+                                            class="btn appstore-btn d-flex align-items-center justify-content-center gap-2">
+                                            <svg class="appstore-icon" fill="currentcolor"
+                                                viewBox="-52.01 0 560.035 560.035" xmlns="http://www.w3.org/2000/svg"
+                                                height="1.5em">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        d="M380.844 297.529c.787 84.752 74.349 112.955 75.164 113.314-.622 1.988-11.754 40.191-38.756 79.652-23.343 34.117-47.568 68.107-85.731 68.811-37.499.691-49.557-22.236-92.429-22.236-42.859 0-56.256 21.533-91.753 22.928-36.837 1.395-64.889-36.891-88.424-70.883-48.093-69.53-84.846-196.475-35.496-282.165 24.516-42.554 68.328-69.501 115.882-70.192 36.173-.69 70.315 24.336 92.429 24.336 22.1 0 63.59-30.096 107.208-25.676 18.26.76 69.517 7.376 102.429 55.552-2.652 1.644-61.159 35.704-60.523 106.559M310.369 89.418C329.926 65.745 343.089 32.79 339.498 0 311.308 1.133 277.22 18.785 257 42.445c-18.121 20.952-33.991 54.487-29.709 86.628 31.421 2.431 63.52-15.967 83.078-39.655">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                            <div>
+                                                <p class="appstore-text mb-0 mt-3 text-nowrap">Download on the</p>
+                                                <p class="appstore-text text-start text-nowrap">App Store</p>
+                                            </div>
+                                        </button>
+                                        <button
+                                            class="btn playstore-btn d-flex align-items-center justify-content-center gap-2">
+                                            <svg class="playstore-icon" viewBox="0 0 512 512" height="1.5em"
+                                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M99.617 8.057a50.191 50.191 0 00-38.815-6.713l230.932 230.933 74.846-74.846L99.617 8.057zM32.139 20.116c-6.441 8.563-10.148 19.077-10.148 30.199v411.358c0 11.123 3.708 21.636 10.148 30.199l235.877-235.877L32.139 20.116zM464.261 212.087l-67.266-37.637-81.544 81.544 81.548 81.548 67.273-37.64c16.117-9.03 25.738-25.442 25.738-43.908s-9.621-34.877-25.749-43.907zM291.733 279.711L60.815 510.629c3.786.891 7.639 1.371 11.492 1.371a50.275 50.275 0 0027.31-8.07l266.965-149.372-74.849-74.847z">
+                                                </path>
+                                            </svg>
+                                            <div>
+                                                <p class="playstore-text mb-0 mt-3 text-nowrap">GET IT ON</p>
+                                                <p class="playstore-text text-nowrap">Google Play</p>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mx-auto align-items-center justify-content-center pt-5 pb-3">
+                    <a href="/"
+                        class="text-decoration-none col-12 col-md-1 d-flex justify-content-center footer-secondary-link text-nowrap">Privacy
+                        policies</a>
+                    <a href="/"
+                        class="text-decoration-none col-12 col-md-2 d-flex justify-content-center footer-secondary-link text-nowrap">Terms
+                        and conditions</a>
+                    <a href="/"
+                        class="text-decoration-none col-12 col-md-1 d-flex justify-content-center footer-secondary-link text-nowrap">Disclaimer</a>
+                </div>
+                <hr>
+                <div class="card-group d-flex gap-3 justify-content-between flex-wrap pt-3 gap-md-0 pb-2">
+                    <p class="m-0 text-white col-12 col-md-12 text-md-start text-center col-lg-3">©2024 Realezi. All
+                        rights
+                        reserved</p>
+                    <p class="text-white col-12 text-center col-md-6 col-lg-3 text-lg-center">Made with love
+                        <span class=""><img src="./assets/heart.png" alt="" class="ms-1 me-1 mb-1 mt-0"></span> from
+                        Realezi
+                    </p>
+                    <ul
+                        class="list-unstyled m-0 p-0 col-12 justify-content-center col-md-6 col-lg-3 d-flex gap-3 justify-content-lg-end">
+                        <li>
+                            <a href="#">
+                                <button class="social-media-btn facebook border-0">
+                                    <img src="./assets/icons/facebook-icon.svg" alt="" class="social-media-icon">
+                                    <span class="social-media-text">Facebook</span>
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="social-media-btn linkedin border-0">
+                                    <img src="./assets/icons/linkedin-icon.svg" alt="" class="social-media-icon">
+                                    <span class="social-media-text">Linkedin</span>
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="social-media-btn instagram border-0">
+                                    <img src="./assets/icons/instagram-icon.svg" alt="" class="social-media-icon">
+                                    <span class="social-media-text">Instagram</span>
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="social-media-btn youtube border-0">
+                                    <img src="./assets/icons/youtube-icon.svg" alt="" class="social-media-icon">
+                                    <span class="social-media-text">YouTube</span>
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- freeConsultation Modal -->
+    <div class="modal fade" id="freeConsultation" tabindex="-1" aria-labelledby="freeConsultationLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body px-3 py-4">
+                    <form action="" id="startSaving" class="form-md px-4" novalidate>
+                        <div class="fs-4 text-start mb-4">Please share your details</div>
+                        <div class="form-group mb-4">
+                            <input type="text" class="form-control" id="freeconsultationname" placeholder=" "
+                                style="border-radius: 10px;" required>
+                            <label for="freeconsultationname" class="form-label fs-6">Name</label>
+                            <div id="freeconsultationnameError" class="text-danger text-start mt-1"></div>
+                        </div>
+                        <div class="d-flex-container">
+                            <select class="form-select" id="countryCode">
+                                <option value="+91">+91</option>
+                                <option value="+1">+1</option>
+                                <option value="+44">+44</option>
+                                <!-- Add more country codes as needed -->
+                            </select>
+                            <div class="phone-container">
+                                <input type="tel" class="form-control border-start-0" id="freeconsultationphone"
+                                    placeholder=" " required style="border-radius: 0 10px 10px 0;">
+                                <button type="button" class="btn-otp px-3 rounded" id="sendOtpButton">Send OTP</button>
+                                <label for="freeconsultationphone" class="form-label fs-6">Enter mobile number</label>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div id="freeconsultationphoneError" class="text-danger text-start mt-1 mt-1"></div>
+                            <div id="otpSentMessage" class="text-start mt-1" style="display: none;color: #EC7100;">
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center mb-4">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="otpInput" placeholder=" "
+                                        style="border-radius: 10px;" required>
+                                    <label for="otpInput" class="form-label fs-6">OTP</label>
+                                    <div id="otpInputError" class="text-danger text-start mt-1"></div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div style="color: #606266; font-size: 13px">
+                                    Did not receive OTP? <div class="mt-0">Request OTP on call.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <input type="email" class="form-control" id="freeconsultationemail" placeholder=" "
+                                style="border-radius: 10px;" required>
+                            <label for="freeconsultationemail" class="form-label fs-6">Email ID</label>
+                            <div id="freeconsultationemailError" class="text-danger text-start mt-1"></div>
+                        </div>
+                        <div id="termsSection" class="form-check mb-4">
+                            <input type="checkbox" class="form-check-input" id="freeconsultationtermsCondition"
+                                required>
+                            <label class="form-check-label text-start fs-6" for="termsCondition">
+                                I agree to be contacted by Realezi Dedicated Manager.
+                            </label>
+                            <div id="freeconsultationtermsConditionError" class="text-danger text-start mt-1"></div>
+                        </div>
+
+                        <button id="freeconsultationsubmitButton" class="submit-btn-disabled rounded-pill w-100"
+                            type="submit" disabled>Submit</button>
+                    </form>
+
+                    <!-- Thank You Message -->
+                    <div id="freeconsultationthankYouMessage" style="display:none;" class="text-center p-5">
+                        <video width="250" height="200" autoplay muted playsinline class="border-0">
+                            <source src="./assets/loading-animation.mp4" type="video/mp4">
+                        </video>
+                        <div class="fw-bolder fs-3" style="color:#EC7100; animation: slideUp 1s ease-out;">Great!</div>
+                        <div class="mt-3 mb-2" style="animation: slideUp 1.5s ease-out;">Our Dedicated Relationship
+                            Manager will contact you shortly</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Close Button Outside Modal Content -->
+            <button type="button" class="btn btn-close position-fixed top-0 end-0 m-3" aria-label="Close">
+                <span><img src="./assets/icons/wrong-circle-icon.svg" alt="icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/rive-canvas@latest/rive.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script src="./index.js"></script>
+    <script src="./navbar.js"></script>
+    <script src="./riv.js"></script>
+    <script src="./forms.js"></script>
+</body>
+
+</html>
