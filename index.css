@@ -65,14 +65,6 @@ ul {
     padding: 0;
 }
 
-.fixed-top {
-    top: 15px;
-    /* Adjust this value to move the navbar down if it overlaps with the hero content */
-    left: 0;
-    right: 0;
-    z-index: 1000;
-}
-
 .navbar .nav-button {
     position: absolute;
     right: 8px;
@@ -168,6 +160,8 @@ ul {
 .mobile-navbar {
     background-color: #111F3C;
     color: white;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 #checkbox {
