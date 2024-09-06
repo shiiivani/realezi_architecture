@@ -26,11 +26,11 @@ ul {
 }
 
 .text-title {
-    font-size: 42px;
+    font-size: 35px;
 }
 
 .Inspire-text {
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .inspire-card-title {
@@ -38,11 +38,19 @@ ul {
 }
 
 .referral-title {
-    font-size: 56px;
+    font-size: 48px;
+}
+
+.Architectural-title {
+    font-size: 48px;
 }
 
 .hero-title {
-    font-size: 60px;
+    font-size: 55px;
+}
+
+.hero-sub-title {
+    font-size: 19px;
 }
 
 .sub-title {
@@ -51,6 +59,11 @@ ul {
 
 .Inspire-image {
     width: 9%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(67%) sepia(38%) saturate(1761%) hue-rotate(197deg) brightness(93%) contrast(92%);
 }
 
 /* Navbar */
@@ -649,7 +662,7 @@ ul {
     color: white;
 }
 
-#stepper-header .step-wrapper .step.active + .step-title {
+#stepper-header .step-wrapper .step.active+.step-title {
     color: #111F3C;
 }
 
@@ -684,15 +697,19 @@ ul {
 
 /* modal and forms styles */
 @keyframes slideUp {
-    from {
-        transform: translateY(100px);
+    0% {
+        transform: translateY(100%);
         opacity: 0;
     }
 
-    to {
+    100% {
         transform: translateY(0);
-        opacity: 10;
+        opacity: 1;
     }
+}
+
+.slide-up {
+    animation: slideUp 1s ease-out;
 }
 
 .btn-close {
@@ -1039,7 +1056,11 @@ footer {
 
 @media (max-width: 767.98px) {
     .hero-title {
-        font-size: 55px;
+        font-size: 45px;
+    }
+
+    .hero-sub-title {
+        font-size: 16px;
     }
 
     .text-title,
@@ -1052,7 +1073,11 @@ footer {
     }
 
     .Inspire-text {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .Architectural-title {
+        font-size: 29px;
     }
 
     .Inspire-image {
