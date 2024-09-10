@@ -569,7 +569,7 @@ ul {
 }
 
 .benefits-card .card-img {
-    height: 140px;
+    height: 120px;
     width: 250px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -1136,7 +1136,7 @@ footer {
 
 @media (max-width: 767.98px) {
     .hero-title {
-        font-size: 25px;
+        font-size: 40px;
     }
 
     .hero-sub-title {
