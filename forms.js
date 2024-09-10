@@ -93,9 +93,31 @@ setupValidation(
 document
   .getElementById("expertForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault();
+
+    // Hide the form
     document.getElementById("expertForm").style.display = "none";
-    document.getElementById("thankYouMessage").style.display = "block";
+
+    // Show the thank you message container
+    const thankYouMessage = document.getElementById("thankYouMessage");
+    thankYouMessage.style.display = "block";
+
+    // Play the video
+    const video = document.getElementById("thankYouVideo");
+    video.play();
+
+    setTimeout(() => {
+      // Reduce the size of the video
+      thankYouMessage.classList.add("reduceSize");
+
+      // Show the text immediately and animate it from bottom to top
+      document.getElementById("thankYouHeading").style.display = "block";
+      document.getElementById("thankYouText").style.display = "block";
+
+      // Trigger text animation
+      document.getElementById("thankYouHeading").classList.add("show");
+      document.getElementById("thankYouText").classList.add("show");
+    }, 4000);
   });
 
 // Function to show OTP sent message
@@ -151,7 +173,30 @@ document
   .getElementById("startSaving")
   .addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent default form submission
+
+    // Hide the form
     document.getElementById("startSaving").style.display = "none";
-    document.getElementById("freeconsultationthankYouMessage").style.display =
-      "block";
+
+    // Show the thank you message container
+    const thankYouMessage = document.getElementById(
+      "freeconsultationthankYouMessage"
+    );
+    thankYouMessage.style.display = "block";
+
+    // Play the video
+    const video = document.getElementById("freeconsultationthankYouVideo");
+    video.play();
+
+    setTimeout(() => {
+      // Reduce the size of the video
+      thankYouMessage.classList.add("reduceSize");
+
+      // Show the text immediately and animate it from bottom to top
+      document.getElementById("freeconsultationthankYouHeading").style.display = "block";
+      document.getElementById("freeconsultationthankYouText").style.display = "block";
+
+      // Trigger text animation
+      document.getElementById("freeconsultationthankYouHeading").classList.add("show");
+      document.getElementById("freeconsultationthankYouText").classList.add("show");
+    }, 4000);
   });

@@ -30,7 +30,7 @@ ul {
 }
 
 .Inspire-text {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .inspire-card-title {
@@ -38,23 +38,23 @@ ul {
 }
 
 .referral-title {
-    font-size: 48px;
+    font-size: 38px;
 }
 
 .Architectural-title {
-    font-size: 48px;
+    font-size: 45px;
 }
 
 .hero-title {
-    font-size: 55px;
+    font-size: 44px;
 }
 
 .hero-sub-title {
-    font-size: 19px;
+    font-size: 18px;
 }
 
 .sub-title {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .Inspire-image {
@@ -723,6 +723,86 @@ ul {
     z-index: 1050;
 }
 
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+
+.modal-dialog.zoom-in {
+    animation: zoomIn 0.5s ease-out;
+}
+
+.modal-dialog.zoom-out {
+    animation: zoomOut 0.5s ease-out;
+}
+
+
+/* Confirmation Popup Modal */
+#freeconsultationthankYouMessage video {
+    width: 250px;
+    height: 200px;
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+#freeconsultationthankYouMessage.reduceSize video {
+    width: 120px;
+    height: 150px;
+}
+
+#thankYouMessage video {
+    width: 250px;
+    height: 200px;
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+#thankYouMessage.reduceSize video {
+    width: 120px;
+    height: 150px;
+}
+
+.thankYouHeading,
+.thankYouText {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.thankYouHeading.show,
+.thankYouText.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.thankYouHeading {
+    color: #ec7100;
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.thankYouText {
+    color: #434343;
+    font-size: 1.2rem;
+}
+
 
 /* forms styles */
 .form-container {
@@ -1056,7 +1136,7 @@ footer {
 
 @media (max-width: 767.98px) {
     .hero-title {
-        font-size: 45px;
+        font-size: 25px;
     }
 
     .hero-sub-title {
