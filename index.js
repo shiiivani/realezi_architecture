@@ -58,7 +58,7 @@ carouselItems.forEach((item, index) => {
 });
 
 // video js
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
   const videos = document.querySelectorAll(".short-section .video-group video");
 
   videos.forEach((video) => {
@@ -93,52 +93,52 @@ document.addEventListener("DOMContentLoaded", (event) => {
       volumeMuted.classList.add("hidden");
     });
   });
-});
 
-// responsive video
-const videoGroup = document.querySelectorAll(".video-group");
-videoGroup.forEach((box) => {
-  const videoSlider = box.querySelector(".video-slider");
-  const video = box.querySelectorAll(".video");
-  const leftArrow = box.querySelector(".left-arrow");
-  const rightArrow = box.querySelector(".right-arrow");
+  // responsive video
+  const videoGroup = document.querySelectorAll(".video-group");
+  videoGroup.forEach((box) => {
+    const videoSlider = box.querySelector(".video-slider");
+    const video = box.querySelectorAll(".video");
+    const leftArrow = box.querySelector(".left-arrow");
+    const rightArrow = box.querySelector(".right-arrow");
 
-  if (!videoSlider || video.length === 0 || !leftArrow || !rightArrow) {
-    return;
-  }
-
-  let currentVideoIndex = 0;
-
-  const videoWidth = video[0].offsetWidth;
-  const videoCount = video.length;
-
-  const firstCardClone = video[0].cloneNode(true);
-  const lastCardClone = video[video.length - 1].cloneNode(true);
-  videoSlider.appendChild(firstCardClone);
-  videoSlider.insertBefore(lastCardClone, video[0]);
-
-  leftArrow.addEventListener("click", () => {
-    currentVideoIndex--;
-    if (currentVideoIndex < 0) {
-      currentVideoIndex = videoCount - 1;
+    if (!videoSlider || video.length === 0 || !leftArrow || !rightArrow) {
+      return;
     }
+
+    let currentVideoIndex = 0;
+
+    const videoWidth = video[0].offsetWidth;
+    const videoCount = video.length;
+
+    const firstCardClone = video[0].cloneNode(true);
+    const lastCardClone = video[video.length - 1].cloneNode(true);
+    videoSlider.appendChild(firstCardClone);
+    videoSlider.insertBefore(lastCardClone, video[0]);
+
+    leftArrow.addEventListener("click", () => {
+      currentVideoIndex--;
+      if (currentVideoIndex < 0) {
+        currentVideoIndex = videoCount - 1;
+      }
+      updateCarouselPosition();
+    });
+
+    rightArrow.addEventListener("click", () => {
+      currentVideoIndex++;
+      if (currentVideoIndex >= videoCount) {
+        currentVideoIndex = 0;
+      }
+      updateCarouselPosition();
+    });
+
+    function updateCarouselPosition() {
+      const newTransform = `translateX(${currentVideoIndex * -videoWidth}px)`;
+      videoSlider.style.transform = newTransform;
+    }
+
     updateCarouselPosition();
   });
-
-  rightArrow.addEventListener("click", () => {
-    currentVideoIndex++;
-    if (currentVideoIndex >= videoCount) {
-      currentVideoIndex = 0;
-    }
-    updateCarouselPosition();
-  });
-
-  function updateCarouselPosition() {
-    const newTransform = `translateX(${currentVideoIndex * -videoWidth}px)`;
-    videoSlider.style.transform = newTransform;
-  }
-
-  updateCarouselPosition();
 });
 
 document.addEventListener("DOMContentLoaded", function () {
