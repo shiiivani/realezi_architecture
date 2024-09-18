@@ -1,3 +1,78 @@
+document.getElementById('scrollPrev').addEventListener('click', function() {
+  document.querySelector('.video-container').scrollBy({
+      left: -window.innerWidth / 2,
+      behavior: 'smooth'
+  });
+});
+
+document.getElementById('scrollNext').addEventListener('click', function() {
+  document.querySelector('.video-container').scrollBy({
+      left: window.innerWidth / 2,
+      behavior: 'smooth'
+  });
+});
+
+document.getElementById('bottomscrollPrev').addEventListener('click', function() {
+  document.getElementById('bottom-video-container').scrollBy({
+      left: -window.innerWidth / 2,
+      behavior: 'smooth'
+  });
+});
+
+document.getElementById('bottomscrollNext').addEventListener('click', function() {
+  document.getElementById('bottom-video-container').scrollBy({
+      left: window.innerWidth / 2,
+      behavior: 'smooth'
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const videoContainers = document.querySelectorAll(".video");
+
+  videoContainers.forEach((videoContainer) => {
+    const video = videoContainer.querySelector("video");
+    const volumeCont = videoContainer.querySelector(".volume-container");
+    const volumeUpIcon = videoContainer.querySelector(".volume-up");
+    const volumeOffIcon = videoContainer.querySelector(".volume-off");
+    const videoSlider = videoContainer.closest(".video-slider");
+    const videoWrapper = videoSlider.querySelector(".video-container");
+
+    // Play/Pause video on click
+    videoContainer.addEventListener("click", function () {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    // Pause animation on hover and show the volume icon
+    videoContainer.addEventListener("mouseover", function () {
+      videoWrapper.style.animationPlayState = "paused";
+      volumeCont.classList.remove("hidden");
+    });
+
+    // Resume animation when hover ends and hide the volume icon
+    videoContainer.addEventListener("mouseout", function () {
+      videoWrapper.style.animationPlayState = "running";
+      volumeCont.classList.add("hidden");
+    });
+
+    // Toggle mute and icons on click
+    volumeUpIcon.addEventListener("click", function () {
+      video.muted = true;
+      volumeUpIcon.classList.add("hidden");
+      volumeOffIcon.classList.remove("hidden");
+    });
+
+    volumeOffIcon.addEventListener("click", function () {
+      video.muted = false;
+      volumeOffIcon.classList.add("hidden");
+      volumeUpIcon.classList.remove("hidden");
+    });
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   const steps = document.querySelectorAll("#stepper-header .step");
   const contents = document.querySelectorAll("#stepper-content .step-content");
