@@ -69,8 +69,8 @@
         </nav>
 
 
-        <!-- hero section -->
-        <section class="position-relative w-100 hero-section">
+        <!-- hero section for mobile view-->
+        <section class="position-relative w-100 mobile-hero-section d-lg-none d-md-none">
             <div class="position-absolute text-white d-flex flex-column align-items-start justify-content-center"
                 style="top: 0; right: 0; bottom: 0; left: 0;">
                 <div class="container">
@@ -89,6 +89,34 @@
                             data-bs-target="#expertModal">Get Started</button>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- hero section for desktop view -->
+        <section class="d-lg-block d-md-block d-none">
+            <div class="position-relative w-100 desktop-header-section">
+                <video autoplay muted loop>
+                    <source src="./assets/hero-section.mp4" type="video/mp4">
+                </video>
+                <div class="desktop-header-content text-white">
+                    <div class="container">
+                        <div class="col-md-8">
+                            <img src="./assets/logo.png" alt="logo" class="d-none d-lg-block d-md-block">
+                            <div class="text-white fw-bold hero-title d-none d-lg-block d-md-block">Designing the
+                                Future,</div>
+                            <div class="text-white fw-bold hero-title d-none d-lg-block d-md-block">Today</div>
+                            <div class="d-lg-none d-md-none text-white fw-bold hero-title">Designing the Future, Today
+                            </div>
+                            <div class="text-white hero-sub-title mt-2">Discover cutting-edge architectural solutions
+                                that
+                                shape
+                                tomorrow's landscapes.</div>
+                            <button class="fs-5 mt-5 rounded-pill get-started-btn" data-bs-toggle="modal"
+                                data-bs-target="#expertModal">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </section>
     </header>

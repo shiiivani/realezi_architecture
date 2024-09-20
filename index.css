@@ -268,11 +268,36 @@ ul {
 }
 
 /* header section styles */
-.hero-section {
+.mobile-hero-section {
     height: 100vh;
     background-image: url('./assets/hero-section.png'); 
     background-size: cover;
     background-position: center;
+}
+
+.desktop-header-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.desktop-header-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.desktop-header-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
 }
 
 .get-started-btn {
@@ -1312,7 +1337,7 @@ footer {
 
     .scroll-button {
         position: absolute;
-        top: 50%;
+        top: 45%;
         transform: translateY(-50%);
         background-color: #111F3C;
         border: none;
