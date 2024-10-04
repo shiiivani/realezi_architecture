@@ -925,7 +925,7 @@ form .no-transform label {
 /* Consultion Container */
 .consultation-container {
   position: absolute;
-  top: -95px;
+  top: -135px;
 }
 
 .consultation-container img {
@@ -938,6 +938,7 @@ form .no-transform label {
   padding: 10px 20px;
   border-radius: 20px;
   white-space: nowrap;
+  margin-top: 120px;
 }
 
 .consultation-container button:hover {
@@ -954,8 +955,12 @@ form .no-transform label {
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   position: relative;
-  padding: 140px 10px 20px 10px;
+  padding: 100px 10px 20px 10px;
   margin-top: 6%;
+}
+
+.footer .container {
+  max-width: 1120px;
 }
 
 .footer .upper-footer ul {
@@ -1303,8 +1308,8 @@ footer p {
 @media screen and (max-width: 1200px) {
   /* Consultation Container */
   .consultation-container {
-    left: 29%;
-    top: -65px;
+    left: 18%;
+    top: -104px;
   }
   /* Footer */
   .footer .columns div:first-child img {
@@ -1318,11 +1323,17 @@ footer p {
   }
 }
 
+@media screen and (max-width: 1021px) {
+  /* Consultation Container */
+  .consultation-container {
+    left: 26%;
+  }
+}
+
 @media screen and (max-width: 990px) {
   /* Consultation Container */
   .consultation-container {
-    left: 10%;
-    top: -64px;
+    left: 18%;
   }
   /* Footer */
   .footer .upper-footer ul {
@@ -1337,6 +1348,13 @@ footer p {
   }
   .footer .upper-footer p {
     margin-right: 10px !important;
+  }
+}
+
+@media screen and (max-width: 905px) {
+  /* Consultation Container */
+  .consultation-container {
+    left: 25%;
   }
 }
 
@@ -1408,6 +1426,13 @@ footer p {
   }
 }
 
+@media screen and (max-width: 755px) {
+  /* Consultation Container */
+  .consultation-container {
+    left: 1%;
+  }
+}
+
 @media screen and (min-width: 560px) {
   .upper-footer .mobile-view-list,
   .playStore-btn.smaller-screen,
@@ -1419,10 +1444,8 @@ footer p {
 @media screen and (max-width: 560px) {
   /* Consultation Container */
   .consultation-container {
-    top: -75px;
-    left: -3%;
+    top: -25%;
   }
-
   /* Footer */
   .footer .playStore-btn {
     position: static;
@@ -1505,6 +1528,10 @@ footer p {
 }
 
 @media screen and (max-width: 450px) {
+  /* Consultation Container */
+  .consultation-container {
+    left: -10%;
+  }
   .footer .upper-footer .columns > div:last-child li:nth-child(4) {
     left: 60%;
   }
